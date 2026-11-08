@@ -1,0 +1,98 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preparar una tablet con NidoTouch por USB</title>
+<style>
+  body { font: 1.08rem/1.6 system-ui,sans-serif; color:#302923; background:#fbf8f3; max-width:48rem; margin:auto; padding:1.5rem; }
+  h1,h2 { line-height:1.22; } h2 { margin-top:2rem; } h1 span,h2 span { display:none; }
+  a { color:#883924; } code { overflow-wrap:anywhere; } li { margin-bottom:.5rem; } img { max-width:100%; height:auto; }
+</style><main><nav aria-label="Navegación"><a href="./index.html">Volver a la descarga</a></nav>
+<h1 id="label-Preparar+una+tablet+con+NidoTouch+por+USB+-C2-B7+Piloto+0.1.1">Preparar una tablet con NidoTouch por USB · Piloto 0.1.1<span><a href="#label-Preparar+una+tablet+con+NidoTouch+por+USB+-C2-B7+Piloto+0.1.1">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Esta guía acompaña al asistente de escritorio para Mac y Windows y al APK de prueba NidoTouch 0.9.1. La persona responsable utiliza su computadora para preparar la tablet. Después podrá administrar las aplicaciones desde la propia tablet con su PIN.</p>
+
+<h2 id="label-1.+Antes+de+conectar">1. Antes de conectar<span><a href="#label-1.+Antes+de+conectar">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Necesitas la autorización del titular, un cable USB <strong>de datos</strong>, Android 11 o posterior y acceso al usuario principal de la tablet. El proceso puede detenerse por una cuenta, otro perfil, administración de una organización o una limitación del fabricante. Una tablet nueva y sin datos facilita la prueba. Reserva un momento en que nadie esté usando Zoom.</p>
+
+<p><strong>Si pensabas restablecer la tablet</strong>, revisa esto antes de decidir. Restablecerla borra aplicaciones y datos de todos los perfiles. Guarda las invitaciones, los días y los horarios de Reunión Fácil fuera del dispositivo. En JW Library respalda tus notas y marcadores, copia el respaldo fuera de la tablet y prevé volver a descargar las publicaciones. Comprueba que puedes entrar en la cuenta de Google anterior con su verificación y que conoces el bloqueo de pantalla. Si falta algo, conserva la tablet como está. El asistente permite empezar con un diagnóstico sin borrarla.</p>
+
+<p>Si el titular ya decidió vaciar otra tablet y verificó sus respaldos, puede usar el procedimiento de restablecimiento del fabricante desde Ajustes. Durante la bienvenida, completa las comprobaciones de identidad que Android solicite. Si Android lo permite, deja para después las cuentas y apps que planeas añadir. Si exige la cuenta anterior, sigue la verificación oficial. Al terminar la bienvenida, continúa con el paso 2. El borrado por sí mismo no concede la administración a NidoTouch. <a href="https://support.google.com/android/answer/6088915?hl=es">Guía de restablecimiento</a> · <a href="https://support.google.com/android/answer/9459346?hl=es">Protección del dispositivo</a> · <a href="https://www.jw.org/es/ayuda-en-l%C3%ADnea/jw-library/android/preguntas-frecuentes/">Respaldo de JW Library</a></p>
+
+<h2 id="label-2.+Abrir+el+asistente+en+la+computadora">2. Abrir el asistente en la computadora<span><a href="#label-2.+Abrir+el+asistente+en+la+computadora">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ol><li>
+<p>Descomprime <strong>NidoTouch-USB-0.1.1.zip</strong> en una carpeta propia. Deja juntos el asistente, sus dos APK y el manual.</p>
+</li><li>
+<p>La computadora necesita Java de escritorio <strong>17 o posterior</strong>. Si ya lo tienes, puedes consultar la versión con <code>java -version</code>. Si hace falta, instala un JRE de escritorio para tu sistema y procesador. <a href="https://adoptium.net/temurin/releases/">Descarga de Eclipse Temurin</a></p>
+</li><li>
+<p>Descarga <strong>SDK Platform-Tools</strong> para Mac o Windows desde Android. Descomprime la carpeta <code>platform-tools</code> junto a <code>NidoTouch-USB.jar</code>. Si ya tienes ADB, el asistente también lo busca en el SDK configurado y en la ruta de comandos del sistema. <strong>Elegir ADB…</strong> permite seleccionar el ejecutable manualmente. <a href="https://developer.android.com/tools/releases/platform-tools">Descarga oficial de Platform-Tools</a></p>
+</li><li>
+<p>En <strong>Mac</strong>, abre <code>Abrir.command</code>. En <strong>Windows</strong>, abre <code>Abrir.cmd</code> desde la carpeta extraída. También puedes ejecutar <code>java -jar NidoTouch-USB.jar</code> en esa carpeta. Si tu equipo exige una firma corporativa para abrirlos, consulta a su responsable.</p>
+</li><li>
+<p>En la tablet, activa <strong>Opciones para desarrolladores</strong> tocando siete veces <strong>Número de compilación</strong> en la información del dispositivo. Activa <strong>Depuración USB</strong>, conecta el cable y acepta la autorización en la tablet desbloqueada. Si Windows no la reconoce, comprueba el cable y el controlador USB de su fabricante. <a href="https://developer.android.com/studio/run/device">Conexión de dispositivos</a> · <a href="https://developer.android.com/studio/run/oem-usb">Controladores de Windows</a></p>
+</li></ol>
+
+<h2 id="label-3.+Revisar+el+resultado">3. Revisar el resultado<span><a href="#label-3.+Revisar+el+resultado">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Pulsa <strong>Revisar tablet</strong> y comprueba el modelo que aparece. Hasta aquí puedes cerrar el asistente sin cambios en la tablet.</p>
+<ul><li>
+<p><strong>Lista para intentar la preparación.</strong> Si reconoces el equipo y quieres que NidoTouch controle las apps y los cambios de cuenta, pulsa <strong>Preparar esta tablet</strong>. Android decide si acepta la solicitud.</p>
+</li><li>
+<p><strong>Hay cuentas.</strong> Quitar una cuenta de Google retira de la tablet correo, contactos y ajustes asociados. Podrías perder cambios sin sincronizar. Comprueba sincronización, respaldo y acceso a la cuenta. Si decides quitarla, hazlo tú en Ajustes y pulsa <strong>Volver a revisar</strong>.</p>
+</li><li>
+<p><strong>Hay otro usuario o perfil.</strong> Eliminar un usuario borra los datos de ese usuario, incluidas las descargas de sus apps. Comprueba en qué perfil están los datos. Puedes salir sin eliminar nada. Si el perfil es de trabajo, consulta a su administrador.</p>
+</li><li>
+<p><strong>NidoTouch ya administra el equipo.</strong> Continúa la configuración existente. Si estás en modo normal, reactiva la protección desde NidoTouch con tu PIN cuando lo desees.</p>
+</li><li>
+<p><strong>No se pudo continuar.</strong> Lee el motivo. Si cambiaste el cable o la computadora perdió la conexión, vuelve a revisar el mismo equipo. Si hay administración ajena, otra versión del APK o un estado desconocido, conserva la instalación actual.</p>
+</li></ul>
+
+<p><img src="screenshots/nidotouch-usb-aviso.png" alt="Aviso de cuenta visto en la Mac durante la prueba con Android 16"></p>
+
+<p>Si Android rechaza la administración después de instalar los APK, la tablet no ha quedado protegida. Vuelve a añadir tu cuenta si la retiraste. Al reconectar, el asistente vuelve a consultar el propietario antes de continuar.</p>
+
+<h2 id="label-4.+Configurar+NidoTouch+en+la+tablet">4. Configurar NidoTouch en la tablet<span><a href="#label-4.+Configurar+NidoTouch+en+la+tablet">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ol><li>
+<p>Una vez que el asistente confirme que <strong>NidoTouch ya administra la tablet</strong>, vuelve a agregar tu cuenta si la necesitas e instala tus apps antes de aplicar los bloqueos.</p>
+</li><li>
+<p>Abre NidoTouch, pulsa <strong>Preparar NidoTouch</strong>, elige al menos una app y pulsa <strong>Siguiente</strong>. Para el uso de la congregación puedes elegir JW Library, Zoom y Reunión Fácil junto con las demás apps que decida el titular.</p>
+</li><li>
+<p>Crea el PIN de administración, copia la clave de recuperación fuera de la tablet y confirma la copia en NidoTouch. Introduce estos datos únicamente en la tablet. Activa la protección y vuelve al inicio de NidoTouch.</p>
+</li></ol>
+
+<p><img src="screenshots/nidotouch-usb-android16.png" alt="Inicio protegido del emulador Android 16 con Reloj entre las apps permitidas"></p>
+
+<h2 id="label-5.+Reiniciar+y+comprobar">5. Reiniciar y comprobar<span><a href="#label-5.+Reiniciar+y+comprobar">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ol><li>
+<p>Guarda cualquier trabajo abierto y pulsa <strong>Reiniciar y comprobar</strong> en la computadora. El arranque puede tardar. Deja conectado el cable.</p>
+</li><li>
+<p>Cuando veas el Inicio protegido, desbloquea la tablet y pulsa <strong>Comprobar bloqueos</strong>. Si Android todavía está arrancando, espera y vuelve a pulsar. Si cerraste el asistente, vuelve a revisar el equipo y repite el reinicio para comprobar su persistencia.</p>
+</li><li>
+<p>El asistente comprueba el propietario, el Inicio protegido y las tres restricciones de Android. Usa <strong>Prueba USB de NidoTouch</strong>, un paquete sin código ni datos personales, para intentar instalarlo y desinstalarlo. La comprobación de cuentas lee la restricción efectiva del usuario. Conserva todas las cuentas reales.</p>
+</li><li>
+<p>Abre una app elegida. Vuelve a Inicio, entra en <strong>Administrar</strong> con tu PIN y pulsa <strong>Volver a proteger</strong>. En la computadora pulsa <strong>Confirmar apps y PIN</strong>. El asistente vuelve a comprobar la protección antes de mostrar <strong>Protección comprobada</strong>.</p>
+</li><li>
+<p>Si falta el paquete de comprobación en un equipo que ya administrabas con <strong>esta misma variante</strong> de NidoTouch, abre administración con tu PIN, instala solo el archivo <code>comprobacion.apk</code> del mismo ZIP mediante ADB (<code>install -t --user 0</code>), y vuelve a proteger. Repite desde el paso 1. Si alguna comprobación sigue pendiente, conserva el motivo para revisarlo.</p>
+</li><li>
+<p>Al terminar, desactiva <strong>Depuración USB</strong> en la tablet desde Ajustes en una sesión de administración. Cierra esa sesión y desconecta el cable.</p>
+</li></ol>
+
+<h2 id="label-Volver+a+modo+normal+o+recuperar+el+PIN">Volver a modo normal o recuperar el PIN<span><a href="#label-Volver+a+modo+normal+o+recuperar+el+PIN">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>En <strong>Administrar</strong>, introduce tu PIN y elige <strong>Usar como tablet normal</strong>. En NidoTouch podrás <strong>Reactivar protección</strong> con el PIN. El administrador se conserva instalado en modo normal. Si olvidas el PIN, usa <strong>Olvidé el PIN</strong> y la clave guardada fuera del dispositivo. Confirma la nueva copia que te indique la tablet. Si perdiste ambos, detente antes de considerar un borrado.</p>
+
+<h2 id="label-Anexo+-C2-B7+Preparaci-C3-B3n+manual+del+piloto">Anexo · Preparación manual del piloto<span><a href="#label-Anexo+-C2-B7+Preparaci-C3-B3n+manual+del+piloto">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Usa este recorrido técnico solo con la variante y el dispositivo de prueba que hayas identificado. Android documenta el alta por ADB para desarrollo. El soporte de Google indicó que el uso familiar de NidoTouch queda fuera del alta empresarial por QR. Instalar un APK desde el navegador no asigna el propietario. <a href="https://developer.android.com/work/dpc/dedicated-devices/cookbook#development-setup">Guía de Android para desarrollo</a></p>
+<ol><li>
+<p>Abre la terminal en la carpeta extraída. En Mac sustituye <code>adb</code> por <code>./platform-tools/adb</code>. En PowerShell usa <code>.\platform-tools\adb.exe</code>. En los comandos siguientes cambia <code>SERIE</code> por el identificador de la única tablet de prueba conectada.</p>
+</li><li>
+<p>Ejecuta <code>adb devices -l</code>, comprueba el modelo y que diga <code>device</code>. Consulta <code>adb -s SERIE shell am get-current-user</code>, <code>adb -s SERIE shell pm list users</code> y <code>adb -s SERIE shell dpm list-owners</code>. Deben corresponder al usuario principal 0, un único usuario y ningún propietario. Revisa en Ajustes que no haya cuentas, perfiles de trabajo ni administración ajena. Si hay dudas, detente. Si ya aparece NidoTouch como propietario, pasa al paso 5.</p>
+</li><li>
+<p>Verifica las huellas con <code>shasum -a 256 -c SHA256SUMS.txt</code> en Mac o <code>Get-FileHash -Algorithm SHA256 *.apk</code> en PowerShell y compara con las del archivo. Si ya hay otro APK de NidoTouch, usa el diagnóstico del asistente para verificar la identidad y detente ante diferencias.</p>
+</li><li>
+<p>En el dispositivo de pruebas vacío y comprobado ejecuta, uno por uno, <code>adb -s SERIE install --user 0 -t nidotouch-0.9.1.apk</code>, <code>adb -s SERIE install --user 0 -t comprobacion.apk</code> y <code>adb -s SERIE shell dpm set-device-owner --user 0 org.reunionfacil.tabletguard/.GuardAdmin</code>. Detente ante un error. Vuelve a consultar <code>dpm list-owners</code> con la misma serie para confirmar que Android asignó NidoTouch al usuario 0.</p>
+</li><li>
+<p>Reincorpora cuentas y apps, completa el paso 4 de esta guía y prueba los bloqueos después del reinicio. El asistente puede hacer esta verificación aunque hayas preparado la tablet a mano. Para comprobarlo en terminal, consulta en <code>adb -s SERIE shell dumpsys user</code> las restricciones <strong>efectivas del usuario 0</strong>: <code>no_install_apps</code>, <code>no_uninstall_apps</code> y <code>no_modify_accounts</code>. Con la protección activa, reinstalar exclusivamente <code>comprobacion.apk</code> con <code>-t -r</code> y desinstalar <strong>solo</strong> <code>org.reunionfacil.nidotouch.usbprobe</code> deben rechazarse por restricción de usuario. Otro error requiere revisión.</p>
+</li><li>
+<p>Para retirar por completo el <strong>administrador de pruebas</strong> en lugar de usar modo normal, autentícate con tu PIN, activa el modo normal y comprueba que funciona el Inicio del fabricante. En el mismo equipo identificado, <code>adb -s SERIE shell dpm remove-active-admin --user 0 org.reunionfacil.tabletguard/.GuardAdmin</code> solicita retirar el propietario de la variante de prueba. Verifica con <code>dpm list-owners</code>. Desinstalar NidoTouch elimina sus propios ajustes y PIN. Apagar la depuración USB completa la entrega.</p>
+</li></ol>
+</main></html>
