@@ -5,9 +5,9 @@
   h1,h2 { line-height:1.22; } h2 { margin-top:2rem; } h1 span,h2 span { display:none; }
   a { color:#883924; } code { overflow-wrap:anywhere; } li { margin-bottom:.5rem; } img { max-width:100%; height:auto; }
 </style><main><nav aria-label="Navegación"><a href="./index.html">Volver a la descarga</a></nav>
-<h1 id="label-Preparar+una+tablet+con+NidoTouch+por+USB+-C2-B7+Piloto+0.1.1">Preparar una tablet con NidoTouch por USB · Piloto 0.1.1<span><a href="#label-Preparar+una+tablet+con+NidoTouch+por+USB+-C2-B7+Piloto+0.1.1">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<h1 id="label-Preparar+una+tablet+con+NidoTouch+por+USB+-C2-B7+Piloto+0.1.2">Preparar una tablet con NidoTouch por USB · Piloto 0.1.2<span><a href="#label-Preparar+una+tablet+con+NidoTouch+por+USB+-C2-B7+Piloto+0.1.2">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
-<p>Esta guía acompaña al asistente de escritorio para Mac y Windows y al APK de prueba NidoTouch 0.9.1. La persona responsable utiliza su computadora para preparar la tablet. Después podrá administrar las aplicaciones desde la propia tablet con su PIN.</p>
+<p>Esta guía acompaña al asistente de escritorio para Mac y Windows y al APK de prueba NidoTouch 0.10.0. La persona responsable utiliza su computadora para preparar la tablet. Después podrá administrar las aplicaciones desde la propia tablet con su PIN.</p>
 
 <h2 id="label-1.+Antes+de+conectar">1. Antes de conectar<span><a href="#label-1.+Antes+de+conectar">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
@@ -19,7 +19,7 @@
 
 <h2 id="label-2.+Abrir+el+asistente+en+la+computadora">2. Abrir el asistente en la computadora<span><a href="#label-2.+Abrir+el+asistente+en+la+computadora">&para;</a> <a href="#top">&uarr;</a></span></h2>
 <ol><li>
-<p>Descomprime <strong>NidoTouch-USB-0.1.1.zip</strong> en una carpeta propia. Deja juntos el asistente, sus dos APK y el manual.</p>
+<p>Descomprime <strong>NidoTouch-USB-0.1.2.zip</strong> en una carpeta propia. Deja juntos el asistente, sus dos APK y el manual.</p>
 </li><li>
 <p>La computadora necesita Java de escritorio <strong>17 o posterior</strong>. Si ya lo tienes, puedes consultar la versión con <code>java -version</code>. Si hace falta, instala un JRE de escritorio para tu sistema y procesador. <a href="https://adoptium.net/temurin/releases/">Descarga de Eclipse Temurin</a></p>
 </li><li>
@@ -75,6 +75,14 @@
 <p>Al terminar, desactiva <strong>Depuración USB</strong> en la tablet desde Ajustes en una sesión de administración. Cierra esa sesión y desconecta el cable.</p>
 </li></ol>
 
+<h2 id="label-Usar+los+controles+cotidianos">Usar los controles cotidianos<span><a href="#label-Usar+los+controles+cotidianos">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>En <strong>Controles de la tablet</strong>, pulsa <strong>Agregar red Wi-Fi</strong> y elige una red cercana o escribe su nombre. Selecciona la seguridad si escribes el nombre e introduce la contraseña de la red. <strong>Guardar y conectar</strong> entrega los datos a Android. Comprueba qué red aparece conectada y el estado de Internet. Para ver redes cercanas y guardadas, el responsable puede preparar una vez el permiso de ubicación desde Administración.</p>
+
+<p>Para el giro, el responsable entra una vez en <strong>Administrar → Controles de la tablet → Preparar giro automático</strong> y autoriza <strong>Modificar ajustes del sistema</strong>. Después, el interruptor está disponible sin PIN y al desactivarlo se conserva la orientación actual en las apps que la admiten. <strong>Probar altavoz</strong> reproduce un tono al volumen multimedia en la salida seleccionada, incluidos los auriculares si están conectados. Se usa antes de una llamada.</p>
+
+<p><strong>Si ya usas el piloto 0.9.1 firmado y administrado</strong>, conserva el PIN y los datos al actualizar. Abre Administración con el PIN, identifica la tablet por su serie como se indica en el anexo y ejecuta desde el ZIP verificado <code>adb -s SERIE install -r -t --user 0 nidotouch-0.10.0.apk</code>. Vuelve a Inicio protegido y comprueba las apps y los bloqueos. Si Android rechaza la actualización, conserva la instalación y revisa el motivo antes de continuar.</p>
+
 <h2 id="label-Volver+a+modo+normal+o+recuperar+el+PIN">Volver a modo normal o recuperar el PIN<span><a href="#label-Volver+a+modo+normal+o+recuperar+el+PIN">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
 <p>En <strong>Administrar</strong>, introduce tu PIN y elige <strong>Usar como tablet normal</strong>. En NidoTouch podrás <strong>Reactivar protección</strong> con el PIN. El administrador se conserva instalado en modo normal. Si olvidas el PIN, usa <strong>Olvidé el PIN</strong> y la clave guardada fuera del dispositivo. Confirma la nueva copia que te indique la tablet. Si perdiste ambos, detente antes de considerar un borrado.</p>
@@ -89,7 +97,7 @@
 </li><li>
 <p>Verifica las huellas con <code>shasum -a 256 -c SHA256SUMS.txt</code> en Mac o <code>Get-FileHash -Algorithm SHA256 *.apk</code> en PowerShell y compara con las del archivo. Si ya hay otro APK de NidoTouch, usa el diagnóstico del asistente para verificar la identidad y detente ante diferencias.</p>
 </li><li>
-<p>En el dispositivo de pruebas vacío y comprobado ejecuta, uno por uno, <code>adb -s SERIE install --user 0 -t nidotouch-0.9.1.apk</code>, <code>adb -s SERIE install --user 0 -t comprobacion.apk</code> y <code>adb -s SERIE shell dpm set-device-owner --user 0 org.reunionfacil.tabletguard/.GuardAdmin</code>. Detente ante un error. Vuelve a consultar <code>dpm list-owners</code> con la misma serie para confirmar que Android asignó NidoTouch al usuario 0.</p>
+<p>En el dispositivo de pruebas vacío y comprobado ejecuta, uno por uno, <code>adb -s SERIE install --user 0 -t nidotouch-0.10.0.apk</code>, <code>adb -s SERIE install --user 0 -t comprobacion.apk</code> y <code>adb -s SERIE shell dpm set-device-owner --user 0 org.reunionfacil.tabletguard/.GuardAdmin</code>. Detente ante un error. Vuelve a consultar <code>dpm list-owners</code> con la misma serie para confirmar que Android asignó NidoTouch al usuario 0.</p>
 </li><li>
 <p>Reincorpora cuentas y apps, completa el paso 4 de esta guía y prueba los bloqueos después del reinicio. El asistente puede hacer esta verificación aunque hayas preparado la tablet a mano. Para comprobarlo en terminal, consulta en <code>adb -s SERIE shell dumpsys user</code> las restricciones <strong>efectivas del usuario 0</strong>: <code>no_install_apps</code>, <code>no_uninstall_apps</code> y <code>no_modify_accounts</code>. Con la protección activa, reinstalar exclusivamente <code>comprobacion.apk</code> con <code>-t -r</code> y desinstalar <strong>solo</strong> <code>org.reunionfacil.nidotouch.usbprobe</code> deben rechazarse por restricción de usuario. Otro error requiere revisión.</p>
 </li><li>
